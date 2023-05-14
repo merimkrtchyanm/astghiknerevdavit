@@ -1,30 +1,22 @@
 const { defineConfig } = require("cypress");
-require('dotenv').config()
-module.exports = defineConfig({
-  e2e: {
-    setupNodeEvents(on, config) {
-    },
-    baseUrl: 'http://www.uitestingplayground.com/visibility',
-    env: {
-    globalUrl:process.env.GLOBAL_URL
-    }
-  },
-});
+const cucumber =
+  require("@badeball/cypress-cucumber-preprocessor").addCucumberPreprocessorPlugin;
+const createBundler = require("@bahmutov/cypress-esbuild-preprocessor");
+const createEsbuildPlugin =
+  require("@badeball/cypress-cucumber-preprocessor/esbuild").createEsbuildPlugin;
 
 module.exports = defineConfig({
   e2e: {
-    specPattern: "**/*.feature",
-    async setupNodeEvents(on, config) {
-      const createEsbuildPlugin = require('@badeball/cypress-cucumber-preprocessor/esbuild').createEsbuildPlugin
-      const createBundler = require('@bahmutov/cypress-esbuild-preprocessor')
-
-      // await here
-      await require('@badeball/cypress-cucumber-preprocessor').addCucumberPreprocessorPlugin(on, config)
-
-      on('file:preprocessor',   createBundler({
+        async setupNodeEvents(on, config) {
+        const bundler = createBundler({
         plugins: [createEsbuildPlugin(config)],
-      }));
-      return config;
-    }
-  },
+        });
+        //add dotenv file here please
+        on("file:preprocessor", bundler);
+        await cucumber(on, config);
+        
+        return config;
+        },
+        specPattern: ["**/*.feature", "cypress/e2e/**/*.cy.{js,jsx,ts,tsx}"],
+    },
 });
