@@ -9,7 +9,10 @@
   "author": "",
   "license": "ISC",
   "devDependencies": {
-    "cypress": "^12.11.0"
+    "cy-verify-downloads": "^0.1.14",
+    "cypress": "^12.11.0",
+    "cypress-delete-downloads-folder": "^0.0.2",
+    "cypress-file-upload": "^5.0.8"
   },
   "dependencies": {
     "@badeball/cypress-cucumber-preprocessor": "^17.0.0",

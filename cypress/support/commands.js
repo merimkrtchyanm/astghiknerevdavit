@@ -28,3 +28,7 @@
 //
 // -- This will overwrite an existing command --
 // Cypress.Commands.overwrite('visit', (originalFn, url, options) => { ... })
+
+import 'cypress-file-upload';
+require('cy-verify-downloads').addCustomCommand();
+require('cypress-delete-downloads-folder').addCustomCommand();

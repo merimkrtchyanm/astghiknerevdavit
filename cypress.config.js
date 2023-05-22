@@ -1,22 +1,31 @@
+const { verifyDownloadTasks } = require('cy-verify-downloads');
 const { defineConfig } = require("cypress");
-const cucumber =
-  require("@badeball/cypress-cucumber-preprocessor").addCucumberPreprocessorPlugin;
-const createBundler = require("@bahmutov/cypress-esbuild-preprocessor");
-const createEsbuildPlugin =
-  require("@badeball/cypress-cucumber-preprocessor/esbuild").createEsbuildPlugin;
+const fs = require("fs");
+const { removeDirectory } = require('cypress-delete-downloads-folder');
+require('dotenv').config()
 
 module.exports = defineConfig({
   e2e: {
-        async setupNodeEvents(on, config) {
-        const bundler = createBundler({
-        plugins: [createEsbuildPlugin(config)],
-        });
-        //add dotenv file here please
-        on("file:preprocessor", bundler);
-        await cucumber(on, config);
-        
-        return config;
-        },
-        specPattern: ["**/*.feature", "cypress/e2e/**/*.cy.{js,jsx,ts,tsx}"],
+    setupNodeEvents(on, config) {
+      on('task', verifyDownloadTasks);
+      on("task", {
+        isFileExist( filePath ) {
+         return new Promise((resolve, reject) => {
+           try {
+             let isExists = fs.existsSync(filePath)
+             resolve(isExists);
+           } catch (e) {
+             reject(e);
+           }
+         });
+       }
+     });
+   //to remove directory
+   on('task', { removeDirectory });
+   }
     },
-});
+    env: {
+      globalUrl:process.env.GLOBAL_URL
+
+    },
+  })
