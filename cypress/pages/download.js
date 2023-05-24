@@ -5,10 +5,9 @@ class downloadPage{
     getDownButton(){
         return cy.get('#downloadButton')
     }
+    data = {
+        downloadedFileName: "sampleFile.jpeg"
+    }
 }
-const data = {
-    downloadedFileName: "sampleFile.jpeg"
-}
-
     export const downloadpage = new downloadPage
-    export {data}
+   

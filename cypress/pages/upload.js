@@ -8,9 +8,10 @@ class uploadPage{
     getUploadedFile(){
         return cy.get('#uploadedFilePath')
     }
+    data = {
+        uploadFileName: "example.json"
+    }
 }
-const data = {
-    uploadFileName: "example.json"
-}
+
     export const uploadpage = new uploadPage
-    export {data}
+   

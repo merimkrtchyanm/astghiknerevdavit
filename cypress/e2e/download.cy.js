@@ -5,7 +5,7 @@ describe('Download the file in qademo webpage', () => {
     it('Download the file', () => {
         downloadpage.visit()
         downloadpage.getDownButton().click()
-        cy.verifyDownload(data.downloadedFileName)
+        cy.verifyDownload(downloadpage.data.downloadedFileName)
         cy.wait(3000)
         cy.task("isFileExist", { fileName: "sampleFile"}).then(() => {
             cy.deleteDownloadsFolder("/sampleFile")
