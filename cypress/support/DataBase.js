@@ -1,0 +1,25 @@
+export const demoqaDate = {
+    alertFrameandwindowstabname:'Alerts, Frame & Windows',
+    browserWindowsbtn:'Browser Windows',
+    newTabbtn:'New Tab',
+    newWindowbtn:'New Window',
+    newWindowmassagebtn:'New Window Message',
+    alertTab:'Alert',
+    textBeforefirstbtn:'Click Button to see alert',
+    textBeforeswcondbtn:'On button click, alert will appear after 5 second',
+    textBeforethirddbtn:'On button click, confirm box will appear',
+    textBeforefourbtn:'On button click, prompt box will appear',
+    framesTab:'Frames',
+    framesPagetitle:'Frames',
+    framesPagebodytext:'Sample Iframe page There are 2 Iframes in this page. Use browser inspecter or firebug to check out the HTML source. In total you can switch between the parent frame, which is this window, and the two frames below',
+    firstFrametext:'This is a sample page',
+    secondFrametext:'This is a sample page',
+    nestedFramestab:'Nested Frames',
+    nestedFramespagetitle:'Nested Frames',
+    nestedFramespagebodytext:'Sample Nested Iframe page. There are nested iframes in this page. Use browser inspecter or firebug to check out the HTML source. In total you can switch between the parent frame and the nested child frame.',
+    smallModalbtn:'Small modal',
+    smallModalalerttext:'This is a small modal. It has very less content',
+    largeModalbtn:'Large Modal',
+    largeModalalerttext:"Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum."
+
+}

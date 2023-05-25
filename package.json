@@ -16,10 +16,10 @@
     "cypress-file-upload": "^5.0.8",
     "esbuild": "^0.16.10"
   },
-
   "dependencies": {
     "@badeball/cypress-cucumber-preprocessor": "^15.0.0",
     "cypress-downloadfile": "^1.2.3",
+    "cypress-real-events": "^1.8.1",
     "dotenv": "^16.0.3"
   },
   "cypress-cucumber-preprocessor": {
@@ -30,11 +30,9 @@
       "filePrefix": "",
       "fileSuffix": ".cucumber"
     },
-  "cypress-cucumber-preprocessor": {
-"nonGlobalStepDefinations": true,
-"step-definations": "cypress/e2e/newtours"
-  }
-  
+    "cypress-cucumber-preprocessor": {
+      "nonGlobalStepDefinations": true,
+      "step-definations": "cypress/e2e/newtours"
+    }
   }
 }
-
