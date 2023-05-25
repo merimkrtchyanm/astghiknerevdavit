@@ -51,7 +51,17 @@ it("Verify login functionality with valid credentials", () => {
           cy.log(response)
           })
         })
-    });
-  
 
- 
+        it("Delete the user", () => {
+         cy.request({
+          method: 'DELETE',
+          url:  'https://demoqa.com/Account/v1/User/' + userId,
+          headers: {
+            "Authorization": "Bearer" + " " + token, 
+            "Content-Type": "application/json" 
+        },
+        }).then((response)=>{
+          cy.log(response)
+        })
+    });
+  })
