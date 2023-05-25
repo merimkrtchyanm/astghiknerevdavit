@@ -17,18 +17,24 @@ When ('Im check text before first btn',function(){
 When ('Im click first btn', function (){
     demoqapage.getCheckalertfirstbtn().click();
 })
-//   Then ('Allert massage',function(){
-//    demoqapage.getCheckalertfirstbtn().click();
-    // })
+   Then ('Allert massage',function(){
+    cy.on('window:alert',(btn)=>{
+Assertion
+cy.wrap(btn).click();
+    })
+     })
 When ('Im check text before second btn',function(){
     demoqapage.getChecktextbeforesecondbtn().should('contain',demoqaDate.textBeforeswcondbtn);
 })
 When ('Im click second btn',function(){
     demoqapage.getCheckalertsecondbtn().click();
 })
-//    Then ('Aller massage in 5 second',function(){
-        //  demoqapage.getChecktextbeforethirdbt()
-//    })
+    Then ('Aller massage in 5 second',function(){
+    cy.on('window:alert',(btn)=>{
+        Assertion
+        cy.wrap(btn).click();
+        })
+    })
 When ('Im check text before third btn',function(){
     demoqapage.getChecktextbeforethirdbtn().should('contain',demoqaDate.textBeforethirddbtn);
 })
@@ -44,4 +50,8 @@ When ('Im click fourth btn',function(){
     demoqapage.getCheckalertfourthbtn().click();
 })
   Then ('Look Alert Please enter your name',function(){
+    cy.on('window:alert',(btn)=>{
+        Assertion
+        cy.wrap(btn).click();
+        })
    })
